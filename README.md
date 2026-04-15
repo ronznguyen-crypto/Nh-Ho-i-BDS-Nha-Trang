@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Charmora City - Biệt thự Song Lập 200m² | Sun Group Nam Nha Trang</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #b38e5d;
+            --primary-dark: #96754a;
+            --primary-light: #d4b28c;
+            --dark: #1a1a1a;
+            --dark-soft: #222;
+            --light: #f9f9f9;
+            --text-dark: #2c2c2c;
+            --text-mid: #5a5a5a;
+            --gold-glow: #d4af37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: #fff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.6)),
+                        url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content { max-width: 800px; padding: 0 20px; }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 7vw, 4.5rem);
+            color: white;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content h1 span { color: var(--primary-light); font-style: italic; }
+        .hero-content p { font-size: 1.1rem; color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto; }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-badge {
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            padding: 14px 28px;
+            border-radius: 50px;
+            border-left: 4px solid var(--primary-light);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .stat-badge span {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            display: block;
+            line-height: 1.3;
+        }
+
+        .stat-badge .stat-label {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.85);
+            letter-spacing: 0.5px;
+            font-weight: 400;
+            margin-top: 4px;
+            display: block;
+        }
+
+        /* SECTIONS */
+        section { padding: 70px 8%; }
+
+        .section-title { text-align: center; margin-bottom: 48px; }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 12px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 70px; height: 3px;
+            background: var(--primary);
+        }
+
+        .section-title p {
+            color: var(--text-mid);
+            margin-top: 12px;
+            max-width: 600px;
+            margin-left: auto; margin-right: auto;
+        }
+
+        /* FEATURE CARDS */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .feature-card {
+            background: var(--light);
+            padding: 30px 24px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+        }
+
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .feature-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .feature-card h4 { font-size: 1.3rem; margin-bottom: 12px; }
+
+        /* VILLA SHOWCASE */
+        .villa-showcase {
+            background: linear-gradient(135deg, var(--dark) 0%, #2a2a2a 100%);
+            border-radius: 32px;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.3);
+        }
+
+        .villa-img {
+            flex: 1; min-width: 300px;
+            background: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 450px;
+        }
+
+        .villa-info { flex: 1; padding: 40px 35px; color: white; }
+        .villa-info h3 { color: var(--primary-light); font-size: 1.8rem; margin-bottom: 20px; }
+
+        .spec-list { list-style: none; margin: 25px 0; }
+        .spec-list li { display: flex; align-items: center; margin-bottom: 14px; gap: 12px; }
+        .spec-list li i { width: 24px; color: var(--primary); font-size: 1.2rem; }
+
+        .price-highlight { font-size: 1.7rem; font-weight: bold; color: #ffcc66; margin: 20px 0 10px; }
+        .price-note { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-bottom: 25px; }
+
+        /* PROGRESS + SPONGE */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .progress-card, .sponge-card {
+            background: var(--light);
+            padding: 28px;
+            border-radius: 24px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+
+        .progress-bar-container { margin: 20px 0; }
+        .progress-label { display: flex; justify-content: space-between; margin-bottom: 8px; }
+        .progress-track { height: 8px; background: #e0e0e0; border-radius: 10px; overflow: hidden; }
+        .progress-fill {
+            width: 0%; height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--gold-glow));
+            border-radius: 10px;
+            animation: fillBar 1.5s ease forwards;
+        }
+        @keyframes fillBar { to { width: 72%; } }
+
+        .sponge-card {
+            background: linear-gradient(135deg, #1e3a2f, #0f2a20);
+            color: white;
+        }
+        .sponge-card i { font-size: 2rem; color: var(--primary-light); margin-bottom: 15px; }
+
+        /* BUTTONS */
+        .btn-group { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; }
+
+        .btn-primary, .btn-zalo, .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.25s;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 8px 20px rgba(179,142,93,0.3); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .btn-zalo { background: #0068ff; color: white; }
+        .btn-zalo:hover { background: #0050cc; transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: rgba(179,142,93,0.1); }
+
+        /* MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .modal-overlay.active { visibility: visible; opacity: 1; }
+
+        .modal-container {
+            background: white;
+            max-width: 480px;
+            width: 90%;
+            border-radius: 32px;
+            padding: 32px 28px;
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.25s;
+        }
+        .modal-overlay.active .modal-container { transform: scale(1); }
+
+        .modal-close { position: absolute; top: 18px; right: 22px; font-size: 28px; cursor: pointer; color: #999; }
+
+        .modal-container h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 8px; }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.2s;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--primary); }
+
+        .submit-form-btn {
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: 'DM Sans', sans-serif;
+            transition: background 0.2s;
+        }
+        .submit-form-btn:hover { background: var(--primary-dark); }
+
+        .toast-msg {
+            position: fixed;
+            bottom: 30px; left: 50%;
+            transform: translateX(-50%);
+            background: #1f2937;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-size: 14px;
+            z-index: 2100;
+            display: none;
+            white-space: nowrap;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        footer {
+            background: var(--dark);
+            color: #888;
+            text-align: center;
+            padding: 28px;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            section { padding: 50px 5%; }
+            .btn-group { justify-content: center; }
+            .villa-info { padding: 30px 20px; }
+            .stat-badge { padding: 10px 20px; }
+            .stat-badge span { font-size: 1.2rem; }
+            .toast-msg { white-space: normal; text-align: center; width: 90%; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">Sun Group • Đảo Sinh Thái</div>
+        <h1>CHARMORA <span>CITY</span></h1>
+        <p>Hành trình thay đổi diện mạo Nam Nha Trang – Sponge City đầu tiên Việt Nam</p>
+        <div class="hero-stats">
+            <div class="stat-badge">
+                <span>Song Lập ven sông</span>
+                <span class="stat-label">view sông Cái độc tôn</span>
+            </div>
+            <div class="stat-badge">
+                <span>Sổ hồng lâu dài</span>
+                <span class="stat-label">sở hữu vĩnh viễn</span>
+            </div>
+            <div class="stat-badge">
+                <span>Onsen khoáng nóng</span>
+                <span class="stat-label">nhật bản thu nhỏ</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GIỚI THIỆU & TIỆN ÍCH -->
+<section>
+    <div class="section-title">
+        <h2>Tiến độ thực tế • Giá trị thực</h2>
+        <p>Hình ảnh từ công trường cho thấy những dãy nhà phố, biệt thự thấp tầng đã rõ hình dáng, hạ tầng đồng bộ.</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <i class="fas fa-map-marked-alt"></i>
+            <h4>Vị Thế Đảo Sinh Thái</h4>
+            <p>3 mặt giáp sông Cái, kết nối trực tiếp đại lộ Trần Phú – cửa ngõ phía Nam Nha Trang.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-hot-tub"></i>
+            <h4>Onsen & Du thuyền</h4>
+            <p>Tiện ích đẳng cấp: hồ onsen khoáng nóng, bến du thuyền, công viên ven sông 7ha.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-leaf"></i>
+            <h4>Sponge City</h4>
+            <p>Đô thị "thành phố bọt biển" tiên phong tại Việt Nam – chống ngập, giảm nhiệt, xanh bền vững.</p>
+        </div>
+    </div>
+</section>
+
+<!-- BIỆT THỰ HOT NHẤT -->
+<section style="background: #f4f4f4;">
+    <div class="section-title">
+        <h2>Cơ hội sở hữu biệt thự Song Lập</h2>
+        <p>Vị trí trực diện công viên – trục xương sống 27m kết nối biển Trần Phú</p>
+    </div>
+    <div class="villa-showcase">
+        <div class="villa-img"></div>
+        <div class="villa-info">
+            <h3>Biệt thự Song Lập Charmora</h3>
+            <ul class="spec-list">
+                <li><i class="fas fa-expand-arrows-alt"></i> Diện tích đất: <strong>200 m²</strong></li>
+                <li><i class="fas fa-home"></i> Xây dựng: <strong>352 m²</strong> (3 tầng + sân vườn)</li>
+                <li><i class="fas fa-compass"></i> Hướng nhà: <strong>Đông Nam</strong> – đón gió biển</li>
+                <li><i class="fas fa-water"></i> Trực diện công viên ven sông, view thoáng vĩnh viễn</li>
+                <li><i class="fas fa-file-alt"></i> Pháp lý: Sổ hồng lâu dài – sở hữu riêng từng căn</li>
+            </ul>
+            <div class="price-highlight">21,43 – 23,04 Tỷ</div>
+            <div class="price-note">* Đã bao gồm VAT + KPBT (giá chính thức từ CĐT)</div>
+            <div class="btn-group">
+                <a href="tel:0911994142" class="btn-primary"><i class="fas fa-phone-alt"></i> Gọi ngay: 0911 994 142</a>
+                <a href="https://zalo.me/0911994142" target="_blank" class="btn-zalo"><i class="fab fa-weixin"></i> Zalo tư vấn</a>
+                <button class="btn-outline" id="openModalBtn"><i class="fas fa-file-invoice"></i> Nhận bảng giá</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TIẾN ĐỘ + SPONGE CITY -->
+<section>
+    <div class="info-grid">
+        <div class="progress-card">
+            <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--primary);"></i>
+            <h3 style="margin: 15px 0 8px;">Tiến độ thi công</h3>
+            <p>Hạ tầng kỹ thuật, công viên, hệ thống thoát nước thông minh đã hoàn thiện hơn 70%.</p>
+            <div class="progress-bar-container">
+                <div class="progress-label"><span>Tiến độ tổng thể</span><strong>72%</strong></div>
+                <div class="progress-track"><div class="progress-fill"></div></div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-label"><span>Hạ tầng & cây xanh</span><strong>68%</strong></div>
+                <div class="progress-track"><div class="progress-fill" style="width:68%;animation:none;"></div></div>
+            </div>
+        </div>
+        <div class="sponge-card">
+            <i class="fas fa-tint"></i>
+            <h3 style="margin: 8px 0;">Sponge City – Thành phố bọt biển</h3>
+            <p>Charmora City áp dụng giải pháp thoát nước & cảnh quan thấm nước, giảm ngập, điều hòa vi khí hậu, tái tạo hệ sinh thái tự nhiên. Tiêu chuẩn đô thị bền vững tầm cỡ quốc tế.</p>
+            <div style="margin-top: 16px;"><i class="fas fa-check-circle"></i> Chứng chỉ xanh hướng tới tương lai</div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section style="background: linear-gradient(145deg, #faf7f2 0%, #fff 100%); text-align: center;">
+    <div class="section-title">
+        <h2>Chuyên viên tư vấn chính thức</h2>
+        <p>Hỗ trợ 24/7 – Hình ảnh thực tế, bảng giá chi tiết & chính sách ưu đãi từ Sun Group</p>
+    </div>
+    <div style="max-width: 500px; margin: 0 auto;">
+        <h3 style="font-family: 'Playfair Display'; font-size: 2rem; color: var(--dark);">Lê Thị Như Hoài</h3>
+        <p style="font-size: 1.2rem; margin: 8px 0;">Chuyên viên BĐS cao cấp – 8 năm kinh nghiệm</p>
+        <div class="btn-group" style="justify-content: center; margin-top: 25px;">
+            <a href="tel:0911994142" class="btn-primary"><i class="fas fa-phone-alt"></i> 0911 994 142</a>
+            <a href="https://zalo.me/0911994142" target="_blank" class="btn-zalo"><i class="fab fa-weixin"></i> Zalo Em Như Hoài</a>
+            <button class="btn-outline" id="openModalBtn2"><i class="fas fa-download"></i> Nhận ngay bảng giá</button>
+        </div>
+        <div style="margin-top: 30px; background: white; border-radius: 20px; padding: 18px; border: 1px solid #eee; line-height: 2;">
+            <div><i class="fas fa-check-circle" style="color: var(--primary);"></i> Hỗ trợ vay ngân hàng 70%</div>
+            <div><i class="fas fa-check-circle" style="color: var(--primary);"></i> Chiết khấu lên đến 8% cho khách hàng sớm</div>
+            <div><i class="fas fa-check-circle" style="color: var(--primary);"></i> Tặng 2 năm phí quản lý & ưu đãi đặt chỗ</div>
+        </div>
+    </div>
+</section>
+
+<!-- MODAL NHẬN BẢNG GIÁ -->
+<div id="priceModal" class="modal-overlay">
+    <div class="modal-container">
+        <span class="modal-close" id="closeModalBtn">&times;</span>
+        <h3>📄 Nhận bảng giá & ưu đãi</h3>
+        <p style="margin-bottom: 20px; color: #666;">Để lại thông tin, em Như Hoài sẽ gửi ngay bảng giá chi tiết + sổ đỏ mẫu</p>
+        <form id="leadForm">
+            <div class="form-group">
+                <input type="text" id="fullname" placeholder="Họ và tên *" required>
+            </div>
+            <div class="form-group">
+                <input type="tel" id="phone" placeholder="Số điện thoại *" required>
+            </div>
+            <div class="form-group">
+                <select id="need">
+                    <option value="">Nhu cầu của anh/chị *</option>
+                    <option value="Mua ở ngay">Mua để ở</option>
+                    <option value="Đầu tư sinh lời">Mua để đầu tư</option>
+                    <option value="Kinh doanh homestay">Cho thuê / kinh doanh</option>
+                    <option value="Tìm hiểu thêm">Tham khảo thêm</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-form-btn">✉️ Gửi yêu cầu – Em Như Hoài sẽ liên hệ ngay</button>
+        </form>
+    </div>
+</div>
+
+<div class="toast-msg" id="toastMsg">✅ Em Như Hoài đã nhận thông tin, sẽ liên hệ anh/chị sớm nhất!</div>
+
+<footer>
+    <p>© 2025 Charmora City – Sun Group | Chuyên viên: Em Như Hoài – 0911 994 142</p>
+    <p style="margin-top: 6px; font-size: 0.75rem;">Thông tin mang tính chất tham khảo. Giá chính thức từ chủ đầu tư Sun Group.</p>
+</footer>
+
+<script>
+    // ========== CẤU HÌNH EMAIL ==========
+    // Địa chỉ email nhận thông tin khách hàng (của Lê Thị Như Hoài)
+    const RECEIVER_EMAIL = "lethinhuhoai1212@gmail.com";
+
+    // Hàm gửi dữ liệu qua FormSubmit (miễn phí, không cần server)
+    function sendLeadViaEmail(leadData) {
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://formsubmit.co/' + RECEIVER_EMAIL;
+        form.target = '_blank';  // Mở tab mới để tránh làm phiền trải nghiệm (có thể bỏ nếu muốn)
+        
+        // Các trường dữ liệu sẽ được gửi trong email
+        const fields = {
+            '_subject': `🔔 Khách hàng mới từ Charmora Song Lập - ${leadData.fullname}`,
+            '_captcha': 'false',
+            '_template': 'table',
+            '_replyto': leadData.phone + '@domain.com',
+            '🏷️ Dự án': 'Charmora City - Biệt thự Song Lập 200m²',
+            '👤 Họ tên khách': leadData.fullname,
+            '📞 Số điện thoại': leadData.phone,
+            '🎯 Nhu cầu': leadData.need,
+            '⏰ Thời gian đăng ký': leadData.timestamp,
+            '📱 Nguồn': 'Landing Page - Lê Thị Như Hoài'
+        };
+        
+        for (const [key, value] of Object.entries(fields)) {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = value;
+            form.appendChild(input);
+        }
+        
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+        console.log('✅ Đã gửi thông tin về email: ' + RECEIVER_EMAIL);
+    }
+    
+    // Lưu thông tin vào localStorage để tiện theo dõi (không bắt buộc)
+    function saveToLocalStorage(leadData) {
+        let leads = JSON.parse(localStorage.getItem('charmora_songlap_leads') || '[]');
+        leads.push(leadData);
+        localStorage.setItem('charmora_songlap_leads', JSON.stringify(leads));
+        console.log('📦 Đã lưu thông tin vào trình duyệt:', leadData);
+    }
+    
+    // ========== XỬ LÝ MODAL & FORM ==========
+    const modal = document.getElementById('priceModal');
+    const openModalBtn1 = document.getElementById('openModalBtn');
+    const openModalBtn2 = document.getElementById('openModalBtn2');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const form = document.getElementById('leadForm');
+    const toast = document.getElementById('toastMsg');
+    
+    // Mở modal
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    // Đóng modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    openModalBtn1.addEventListener('click', openModal);
+    openModalBtn2.addEventListener('click', openModal);
+    closeModalBtn.addEventListener('click', closeModal);
+    // Đóng modal khi click ra ngoài vùng nội dung
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    
+    // Xử lý khi submit form
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const fullname = document.getElementById('fullname').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const need = document.getElementById('need').value;
+        
+        // Kiểm tra dữ liệu nhập
+        if (!fullname || !phone) {
+            alert('Vui lòng nhập đầy đủ họ tên và số điện thoại.');
+            return;
+        }
+        if (!need) {
+            alert('Vui lòng chọn nhu cầu của anh/chị.');
+            return;
+        }
+        
+        // Tạo đối tượng dữ liệu
+        const leadData = {
+            fullname: fullname,
+            phone: phone,
+            need: need,
+            timestamp: new Date().toLocaleString('vi-VN'),
+            project: 'Charmora City - Song Lập 200m²',
+            source: 'Landing Page - Như Hoài'
+        };
+        
+        // Gửi email
+        sendLeadViaEmail(leadData);
+        
+        // Lưu lại (tuỳ chọn)
+        saveToLocalStorage(leadData);
+        
+        // Hiển thị thông báo thành công
+        toast.style.display = 'block';
+        setTimeout(() => {
+            toast.style.display = 'none';
+        }, 3500);
+        
+        // Reset form và đóng modal
+        form.reset();
+        closeModal();
+        
+        // Có thể mở trang email hoặc Zalo để chủ động liên hệ (không bắt buộc)
+        // setTimeout(() => {
+        //     window.open('https://zalo.me/0911994142', '_blank');
+        // }, 500);
+    });
+</script>
+</body>
+</html>
